@@ -5,6 +5,7 @@ const User = require('./../models/user');
 class LoginController {
     login(req, res) {
         const { email, password } = req.body;
+        console.log(req.body)
 
         User.findOne({ email })
             .then(user => {
