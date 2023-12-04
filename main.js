@@ -12,7 +12,7 @@ const mongoURL = process.env.MONGO_URL;
 const app = express();
 
 app.use('', routes);
-app.use(cors);
+app.use(cors());
 
 app.get('', (req, res) => {
     res.send('API works');
