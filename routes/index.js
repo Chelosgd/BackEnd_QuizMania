@@ -30,6 +30,7 @@ router.get('/quiz', quizController.getAllQuizzesGroupedByCategory);
 
 //category
 router.get('/category', categoryController.getAllCategories);
+router.get('/category/:categoryId', categoryController.getCategorybyId);
 
 //difficulty
 router.get('/difficulty', difficultyController.getAllDifficulties);
