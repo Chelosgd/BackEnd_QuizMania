@@ -1,9 +1,10 @@
 const{model, Schema} = require('mongoose');
 
 const recordSchema = new Schema({
-    idQuiz: {type: String, require: true},
+    //idQuiz: {type: String, require: true},
+    idQuiz: {type: Schema.Types.ObjectId, ref: 'quizzes', require: true},
     score: {type: Number, require: true},
     dateAnswered: {type: Date, require: true}
 });
 
-model.exports = model('records', recordSchema);
+module.exports = model('records', recordSchema);

@@ -1,11 +1,11 @@
 const {model, Schema} = require('mongoose');
-const optionSchema = require('./option');
+//const optionSchema = require('./option');
 
 const questionSchema = new Schema({
     text: {type: String, require: true},
-    options: [{type: optionSchema, require: true}],
+    options: [{ type: Schema.Types.Object, ref: 'options', require: true }],
     idUser: {type: String, require: true},
-    idtype: {type: String, require: true}
+    idType: {type: String, require: true},
 });
 
-module.exports = model('questions', questionSchema);
+module.exports = model('questions', questionSchema, 'Question');

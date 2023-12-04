@@ -1,16 +1,25 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
+const path = require('path');
+const routes = require("./routes/index");
 
 const port = process.env.PORT || 3000; 
+const secretKey = process.env.SECRET_KEY;
+const mongoURL = process.env.MONGO_URL;
 
 const app = express();
 
+app.use('', routes);
+
 app.get('', (req, res) => {
-    res.send('API works well!!!');
+    res.send('API works');
 });
 
-app.listen(port, () => {
-    console.log('API is running');
-
+mongoose.connect(mongoURL).then(client =>{
+    app.listen(port,() =>{ 
+        console.log('API is running. Port:' + port);
+    });
+}).catch(err=>{
+    console.log('Conection fails',err);
 });

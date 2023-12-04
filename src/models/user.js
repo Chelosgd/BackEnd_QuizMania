@@ -7,4 +7,4 @@ const userSchema = new Schema({
     profilePic: {type: String, require: true}
 });
 
-module.exports = model('users', userSchema);
+module.exports = model('users', userSchema, "User");
