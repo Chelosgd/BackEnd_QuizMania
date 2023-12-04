@@ -40,5 +40,6 @@ router.get('/type', typeController.getAllTypes);
 
 //record
 router.get('/record/:id', recordController.getUserRecords);
+router.post('/record', recordController.createRecord);
 
 module.exports = router
