@@ -12,7 +12,11 @@ const mongoURL = process.env.MONGO_URL;
 const app = express();
 
 app.use('', routes);
-app.use(cors());
+
+app.use((req, res, next) => {
+    res.append('Access-Control-Allow-Origin', ['*']);
+    next();
+})
 
 app.get('', (req, res) => {
     res.send('API works');
